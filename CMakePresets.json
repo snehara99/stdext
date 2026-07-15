@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "vs-v141",
+      "displayName": "VS – MSVC v141 (14.16) x64",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "toolset": "v141",
+      "binaryDir": "${sourceDir}/out/build/${presetName}"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs-v141-release",
+      "configurePreset": "vs-v141",
+      "configuration": "Release"
+    }
+  ]
+}
