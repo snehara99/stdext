@@ -4,10 +4,10 @@
   "configurePresets": [
     {
       "name": "appmod-configure",
-      "displayName": "VS – MSVC v141 (14.16) x64",
+      "displayName": "VS – MSVC v145 (14.26) x64",
       "generator": "Visual Studio 18 2026",
       "architecture": "x64",
-      "toolset": "v141",
+      "toolset": "v145",
       "binaryDir": "${sourceDir}/out/build/${presetName}"
     }
   ],
