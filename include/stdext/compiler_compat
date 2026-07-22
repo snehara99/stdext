@@ -9,13 +9,18 @@
 #endif
 
 // code source location handling depending on compiler features (WIP)
-#if __has_include( <source_location> )
+#include <version>  // feature-test macros (e.g. __cpp_lib_source_location)
+
+// NB: only rely on <source_location> when the standard library actually
+// provides std::source_location (C++20). The header may exist under C++17
+// (e.g. MSVC) without the type being available, so test the feature macro.
+#if defined( __cpp_lib_source_location )
 //#pragma message("<source_location>")
 #include <source_location>
 #define stdext_FILE std::source_location::current().file_name()
 #define stdext_LINE std::source_location::current().line()
 #define stdext_FUNCTION std::source_location::current().function_name()
-#define stdext_COLUMN std::source_location::current().column_name()
+#define stdext_COLUMN std::source_location::current().column()
 
 #elif __has_include( <experimental/source_location> ) && !(defined(__clang__) && ( __clang_major__ < 9 ))
 //#pragma message("<experimental/source_location>")
